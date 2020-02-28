@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Prof_Me.Data.Models.UserProfile>
+@using Prof_Me.Data;
+@using Prof_Me.Data.Models;
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CoverImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProfileImage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Universiy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Company)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Post)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoverImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Universiy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Post)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@
+
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            if (item.FName != null)
+            {
+            <div class="card m-4" style="width: 18rem;">
+                <img src="~/images/profile1.jfif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.FName) @Html.DisplayFor(modelItem => item.LName) (@Html.DisplayFor(modelItem => item.UserName))</h5>
+                    <h6>Graduated from @Html.DisplayFor(modelItem => item.Universiy) Age:  @Html.DisplayFor(modelItem => item.Age)</h6>
+                    <h6><b>@Html.DisplayFor(modelItem => item.Post) at @Html.DisplayFor(modelItem => item.Company)</b></h6>
+
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Go To Profile</a>
+                </div>
+            </div>
+            }
+        }
+
+        </div>
+
+

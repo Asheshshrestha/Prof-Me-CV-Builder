@@ -1,0 +1,11 @@
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\bin\Debug\netcoreapp3.1\Prof-Me.Services.deps.json
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\bin\Debug\netcoreapp3.1\Prof-Me.Services.dll
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\bin\Debug\netcoreapp3.1\Prof-Me.Services.pdb
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\bin\Debug\netcoreapp3.1\Prof-Me.Data.dll
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\bin\Debug\netcoreapp3.1\Prof-Me.Data.pdb
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.csprojAssemblyReference.cache
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.AssemblyInfoInputs.cache
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.AssemblyInfo.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.csproj.CopyComplete
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.dll
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Services\obj\Debug\netcoreapp3.1\Prof-Me.Services.pdb

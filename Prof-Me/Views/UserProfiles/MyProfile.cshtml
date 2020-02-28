@@ -1,0 +1,318 @@
+﻿@model Prof_Me.Data.Models.UserProfile
+
+@{
+    ViewData["Title"] = "MyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <img class="cover-img" src="@Url.Content(" /images/userimage/" + @Model.CoverImage)" alt="Responsive image">
+        <img class="profile-img" src="@Url.Content(" /images/userimage/" + @Model.ProfileImage)" alt="Responsive image">
+    </div>
+    <div class="row usr-dtl">
+        <div class="usr-name">
+            @Html.DisplayFor(model => model.FName) @Html.DisplayFor(model => model.LName) (@Html.DisplayFor(model => model.UserName))
+        </div>
+        <div class="usr-ofc">
+            <p>
+                ashesh.shrestha@braindigit.com<br /> @Html.DisplayFor(model => model.Post) at <b>@Html.DisplayFor(model => model.Company)</b><br/>
+                Studied at <b>@Html.DisplayFor(model => model.Universiy)</b><br />
+                @Html.DisplayFor(model => model.Address)<br />
+                Age : @Html.DisplayFor(model => model.Age)
+            </p>
+            <div class="dropdown dropdown-1">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Add Profile Section
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exp_modal">Add Experience</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edu_modal">Add Education</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#skl_modal">Add Skills</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#acc_modal">Add Accomplishment</a>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#lng_modal">Add Language</a>
+                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@Model.Id">Edit Personal Details</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div>
+
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Experience
+                <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#exp_modal">Add</button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-timeline4">
+                            @foreach (var experience in Model.Experiences)
+                            {
+                                <div class="timeline">
+                                    <a asp-controller="Experiences" asp-action="Details" asp-route-id="@experience.Id" class="timeline-content">
+                                        <span class="year">@Html.DisplayFor(modelitem => experience.Leave.Year)</span>
+                                        <div class="inner-content">
+                                            <h3 class="title">@Html.DisplayFor(modelitem => experience.PostType) At @Html.DisplayFor(modelitem => experience.Company) (Left)</h3>
+                                            <p class="description">
+                                                @Html.DisplayFor(modelitem => experience.Description)
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="timeline">
+                                    <a asp-controller="Experiences" asp-action="Details" asp-route-id="@experience.Id" class="timeline-content">
+                                        <span class="year">@Html.DisplayFor(modelitem => experience.Join.Year)</span>
+                                        <div class="inner-content">
+                                            <h3 class="title">@Html.DisplayFor(modelitem => experience.PostType) At @Html.DisplayFor(modelitem => experience.Company) (Join)</h3>
+                                            <p class="description">
+                                                @Html.DisplayFor(modelitem => experience.Description)
+                                            </p>
+                                        </div>
+                                    </a>
+                                </div>
+                            }
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Education
+                <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#edu_modal">Add</button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach (var education in Model.Educations)
+                    {
+                        <div class="card  m-4" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelitem => education.Level)</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelitem => education.EName)</h6>
+                                <p class="card-text">Studied from @Html.DisplayFor(modelitem => education.Join.Year) to @Html.DisplayFor(modelitem => education.Leave.Year)</p>
+                                <a asp-controller="Educations" asp-action="Details" asp-route-id="@education.Id" class="card-link">Details</a>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+                </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Skills
+                <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#skl_modal">Add</button>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    @foreach (var skills in Model.Skills)
+                    {
+                    <li class="list-group-item">@Html.DisplayFor(modelitem => skills.SkillName) <a class="d-flex justify-content-end"asp-controller="Skills" asp-action="Details" asp-route-id="@skills.Id" class="card-link">Details</a></li>
+                    }
+                    </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Accomplishment
+                <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#acc_modal">Add</button>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Language
+                <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#lng_modal">Add</button>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exp_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Experience</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Experiences" asp-action="Create">
+
+                    <div class="form-group">
+                        <label class="control-label" for="Company">Company</label>
+                        <input class="form-control" type="text" id="Company" name="Company" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Company" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="PostType">PostType</label>
+                        <input class="form-control" type="text" id="PostType" name="PostType" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="PostType" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Join">Join</label>
+                        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Join field is required." id="Join" name="Join" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Join" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Leave">Leave</label>
+                        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Leave field is required." id="Leave" name="Leave" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Leave" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Description">Description</label>
+                        <input class="form-control" type="text" id="Description" name="Description" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                    </div>
+
+
+
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="edu_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Education</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Educations" asp-action="Create">
+
+                    <div class="form-group">
+                        <label class="control-label" for="Level">Level</label>
+                        <input class="form-control" type="text" id="Level" name="Level" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Level" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="EName">EName</label>
+                        <input class="form-control" type="text" id="EName" name="EName" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="EName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Join">Join</label>
+                        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Join field is required." id="Join" name="Join" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Join" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="Leave">Leave</label>
+                        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Leave field is required." id="Leave" name="Leave" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="Leave" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="skl_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Skills</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Skills" asp-action="Create">
+
+                    <div class="form-group">
+                        <label class="control-label" for="SkillName">SkillName</label>
+                        <input class="form-control" type="text" id="SkillName" name="SkillName" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="SkillName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="acc_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Accomplishment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="lng_modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Add Language</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
