@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Prof_Me.Data
 {
@@ -6,8 +7,8 @@ namespace Prof_Me.Data
     {
         UserEntity GetLanguage(int id);
         IEnumerable<UserEntity> GetAllLanguage();
-        void AddLanguageData(UserEntity entity);
-        void UpdateLanguageData(UserEntity dbentity, UserEntity entity);
-        void DeleteLanguage(UserEntity entity);
+        Task AddLanguageData(UserEntity entity);
+        Task UpdateLanguageData(UserEntity dbentity, UserEntity entity);
+        Task DeleteLanguage(UserEntity entity);
     }
 }

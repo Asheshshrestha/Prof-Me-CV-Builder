@@ -1,0 +1,46 @@
+﻿.cover-img-sec
+{
+    height:300px;
+    border:2px;
+}
+.cover-img-sec img{
+    height:300px;
+    width:100%;
+    border-bottom-style:groove;
+    border-bottom-color:aqua;
+    border-bottom-width:2px;
+}
+
+.profile-img-sec{
+    margin-top:-100px;
+    margin-left:20px;
+    
+ 
+}
+    .profile-img-sec img {
+        border-width: 2px;
+        border-color: #00ff0a;
+        border-style: ridge;
+        height:150px;
+    }
+
+.usr-name {
+    font-family: "Times New Roman", Times,Sans-serif;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: bold;
+}
+.usr-post, .usr-ctry, .usr-com ,.usr-uni{
+    font-size: 25px;
+}
+.dropdown{
+    margin-left: 80%;
+    margin-top: -200px;
+}
+.usr-uni-com {
+    margin-left: 80%;
+    margin-top: 7px;
+}
+.usr-detail {
+    height: 200px;
+}

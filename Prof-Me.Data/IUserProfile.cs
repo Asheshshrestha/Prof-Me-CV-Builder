@@ -7,7 +7,7 @@ namespace Prof_Me.Data
 
         UserEntity GetUser(int id);
         UserEntity GetUser(string username);
-        IEnumerable<UserEntity> GetAllUser();
+        IEnumerable<UserEntity> GetAllUser(string SearchString);
         void AddProfileData(UserEntity entity);
         void UpdateProfileData(UserEntity dbentity, UserEntity entity);
         void DeleteProfile(UserEntity entity);

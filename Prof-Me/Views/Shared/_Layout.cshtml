@@ -19,22 +19,25 @@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Prof_Me</a>
+                <a class="navbar-brand" asp-area="" asp-controller="UserProfiles" asp-action="Index">Prof_Me</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="btn text-dark btn-outline-warning m-1" asp-area="" asp-controller="UserProfiles" asp-action="MyProfile" asp-route-id="@UserManager.GetUserName(User)">My Profile</a>
-                        </li>
-
-                    </ul>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="btn text-dark btn-outline-warning m-1" asp-area="" asp-controller="UserProfiles" asp-action="MyProfile" asp-route-id="@UserManager.GetUserName(User)">My Profile</a>
+                            </li>
+                        }
+                        </ul>
+                        
                     @if(ViewData["Title"].ToString() == "Index")
                     {
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="form-inline my-2 my-lg-0" asp-controller="UserProfiles" asp-action="Index">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" name="SearchString" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     }

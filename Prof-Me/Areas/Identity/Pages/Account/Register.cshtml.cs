@@ -87,7 +87,7 @@ namespace Prof_Me.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
-                    _context.AddProfileData(new UserProfile { UserName = Input.UserName });
+                    _context.AddProfileData(new UserProfile { UserName = Input.UserName ,CoverImage="defaultcover.jfif",ProfileImage="defaultprofile.png",Email = Input.Email});
 
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

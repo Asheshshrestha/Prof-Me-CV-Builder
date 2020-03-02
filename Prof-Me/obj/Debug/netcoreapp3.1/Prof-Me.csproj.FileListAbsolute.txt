@@ -238,3 +238,13 @@ E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Vie
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Skills\Details.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Skills\Edit.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Skills\Index.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Accomplishments\Create.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Accomplishments\Delete.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Accomplishments\Details.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Accomplishments\Edit.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Accomplishments\Index.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Create.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Delete.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Details.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Edit.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Index.cshtml.g.cs

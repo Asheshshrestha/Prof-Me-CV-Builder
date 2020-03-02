@@ -2,6 +2,7 @@
 using Prof_Me.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Prof_Me.Services
 {
@@ -20,21 +21,21 @@ namespace Prof_Me.Services
         {
             return _context.Languages.FirstOrDefault(p => p.Id == id);
         }
-        public void AddLanguageData(Language language)
+        public async Task AddLanguageData(Language language)
         {
             _context.Languages.Add(language);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
-        public void UpdateLanguageData(Language dblanguage, Language language)
+        public async Task UpdateLanguageData(Language dblanguage, Language language)
         {
             dblanguage.Id = language.Id;
             dblanguage.LanguageName = language.LanguageName;
-            _context.SaveChanges();
+           await _context.SaveChangesAsync();
         }
-        public void DeleteLanguage(Language language)
+        public async Task DeleteLanguage(Language language)
         {
             _context.Languages.Remove(language);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
 

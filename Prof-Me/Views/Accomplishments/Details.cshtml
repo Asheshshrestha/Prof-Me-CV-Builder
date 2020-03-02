@@ -1,0 +1,36 @@
+﻿@model Prof_Me.Data.Models.Accomplishment
+@using Microsoft.AspNetCore.Identity
+@using Prof_Me.Data.Models;
+
+@inject SignInManager<UserData> SignInManager
+@inject UserManager<UserData> UserManager
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Accomplishment</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CertificateName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CertificateName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GotDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GotDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+    <a asp-controller="UserProfiles" asp-action="MyProfile" asp-route-id="@UserManager.GetUserName(User)">Back to Profile</a>
+</div>

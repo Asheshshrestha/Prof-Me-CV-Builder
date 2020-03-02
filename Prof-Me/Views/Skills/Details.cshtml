@@ -1,5 +1,9 @@
 ﻿@model Prof_Me.Data.Models.Skills
+@using Microsoft.AspNetCore.Identity
+@using Prof_Me.Data.Models;
 
+@inject SignInManager<UserData> SignInManager
+@inject UserManager<UserData> UserManager
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,15 +15,16 @@
     <h4>Skills</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.SkillName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.SkillName)
         </dd>
     </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> |
+    <a asp-controller="UserProfiles" asp-action="MyProfile" asp-route-id="@UserManager.GetUserName(User)">Back to Profile</a>
 </div>

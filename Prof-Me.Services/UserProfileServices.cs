@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Prof_Me.Data;
 using Prof_Me.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,9 +27,19 @@ namespace Prof_Me.Services
             _context.SaveChanges();
         }
 
-        public IEnumerable<UserProfile> GetAllUser()
+        public IEnumerable<UserProfile> GetAllUser(string SearchString)
         {
-            return _context.UserProfiles.ToList();
+            var users = from m in _context.UserProfiles
+                         select m;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                users = users.Where(s => s.UserName.Contains(SearchString) 
+                || s.Age.ToString().Contains(SearchString)
+                || s.Universiy.Contains(SearchString)
+                || s.Company.Contains(SearchString)
+                || s.Post.Contains(SearchString));
+            }
+            return users.ToList();
         }
 
         public UserProfile GetUser(int id)
@@ -37,6 +48,8 @@ namespace Prof_Me.Services
                 .Include(p => p.Experiences)
                 .Include(p => p.Educations)
                 .Include(p => p.Skills)
+                .Include(p => p.Accomplishments)
+                .Include(p => p.Languages)
                 .FirstOrDefault(p => p.Id == id);
         }
 
@@ -46,6 +59,8 @@ namespace Prof_Me.Services
                 .Include(p => p.Experiences)
                 .Include(p => p.Educations)
                 .Include(p=>p.Skills)
+                .Include(p => p.Accomplishments)
+                .Include(p => p.Languages)
                 .FirstOrDefault(p => p.UserName == username);
         }
 

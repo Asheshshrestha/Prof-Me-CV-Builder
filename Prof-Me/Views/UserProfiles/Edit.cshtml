@@ -1,5 +1,9 @@
 ﻿@model Prof_Me.Data.Models.UserProfile
+@using Microsoft.AspNetCore.Identity
+@using Prof_Me.Data.Models;
 
+@inject SignInManager<UserData> SignInManager
+@inject UserManager<UserData> UserManager
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -77,6 +81,6 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="UserProfiles" asp-action="MyProfile" asp-route-id="@UserManager.GetUserName(User)">Back to Profile</a>
 </div>
 

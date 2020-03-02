@@ -25,10 +25,10 @@ namespace Prof_Me.Controllers
         }
 
         // GET: UserProfiles
-        [Authorize]
-        public IActionResult Index()
+         [Authorize]
+        public IActionResult Index(string SearchString)
         {
-            return View(_context.GetAllUser());
+            return View(_context.GetAllUser(SearchString));
         }
 
         // GET: UserProfiles/Details/5
@@ -47,8 +47,13 @@ namespace Prof_Me.Controllers
         }
         [Authorize]
         [Route("UserProfiles/MyProfile/{username}")]
-        public IActionResult MyProfile(string username)
+        public async Task<IActionResult> MyProfileAsync(string username)
         {
+            var current_User = await _userManager.GetUserAsync(HttpContext.User);
+            if (username != current_User.UserName)
+            {
+                return NotFound();
+            }
             if (username == null)
             {
                 return NotFound();
@@ -127,7 +132,8 @@ namespace Prof_Me.Controllers
                         userProfile.ProfileImage = _imgcontext.SaveProfileImage(ProfileImage);
                     }
                         _context.UpdateProfileData(dbdata, userProfile);
-                    
+                    TempData["smessage"] = "Updated Profile Sucessfully";
+
 
                 }
                 catch (DbUpdateConcurrencyException)

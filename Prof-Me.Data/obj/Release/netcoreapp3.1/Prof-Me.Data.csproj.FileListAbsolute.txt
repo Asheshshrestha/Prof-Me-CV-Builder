@@ -1,0 +1,8 @@
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\bin\Release\netcoreapp3.1\Prof-Me.Data.deps.json
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\bin\Release\netcoreapp3.1\Prof-Me.Data.dll
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\bin\Release\netcoreapp3.1\Prof-Me.Data.pdb
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\obj\Release\netcoreapp3.1\Prof-Me.Data.csprojAssemblyReference.cache
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\obj\Release\netcoreapp3.1\Prof-Me.Data.AssemblyInfoInputs.cache
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\obj\Release\netcoreapp3.1\Prof-Me.Data.AssemblyInfo.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\obj\Release\netcoreapp3.1\Prof-Me.Data.dll
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me.Data\obj\Release\netcoreapp3.1\Prof-Me.Data.pdb

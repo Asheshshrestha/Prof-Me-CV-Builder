@@ -5,89 +5,138 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<div class="container">
+    <div class="row">
+        <img class="cover-img" src="@Url.Content(" /images/userimage/" + @Model.CoverImage)" alt="Responsive image">
+        <img class="profile-img" src="@Url.Content(" /images/userimage/" + @Model.ProfileImage)" alt="Responsive image">
+    </div>
+    <div class="row usr-dtl">
+        <div class="usr-name">
+            @Html.DisplayFor(model => model.FName) @Html.DisplayFor(model => model.LName) (@Html.DisplayFor(model => model.UserName))
+        </div>
+        <div class="usr-ofc">
+            <p>
+                @Html.DisplayFor(model => model.Email)<br /> @Html.DisplayFor(model => model.Post) at <b>@Html.DisplayFor(model => model.Company)</b><br />
+                Studied at <b>@Html.DisplayFor(model => model.Universiy)</b><br />
+                @Html.DisplayFor(model => model.Address)<br />
+                Age : @Html.DisplayFor(model => model.Age)
+            </p>
+            
+        </div>
 
-<div>
-    <h4>UserProfile</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
+    </div>
+    <div>
 
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.FName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.FName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.LName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.LName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CoverImage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CoverImage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ProfileImage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ProfileImage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Universiy)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Universiy)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Company)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Company)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Post)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Post)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Experiences)
-        </dt>
-        
-            @foreach (var experience in Model.Experiences)
-            {<dd>
-    @Html.DisplayFor(modelitem => experience.Company)
-        <br />
-</dd>
-    }
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Experience
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-timeline4">
+                            @foreach (var experience in Model.Experiences)
+                            {
+                                <div class="timeline">
+                                    <div class="timeline-content">
+                                        <span class="year">@Html.DisplayFor(modelitem => experience.Leave.Year)</span>
+                                        <div class="inner-content">
+                                            <h3 class="title">@Html.DisplayFor(modelitem => experience.PostType) At @Html.DisplayFor(modelitem => experience.Company) (Left)</h3>
+                                            <p class="description">
+                                                @Html.DisplayFor(modelitem => experience.Description)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline">
+                                    <div class="timeline-content">
+                                        <span class="year">@Html.DisplayFor(modelitem => experience.Join.Year)</span>
+                                        <div class="inner-content">
+                                            <h3 class="title">@Html.DisplayFor(modelitem => experience.PostType) At @Html.DisplayFor(modelitem => experience.Company) (Join)</h3>
+                                            <p class="description">
+                                                @Html.DisplayFor(modelitem => experience.Description)
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
 
-    </dl>
-    
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Education
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    @foreach (var education in Model.Educations)
+                    {
+                        <div class="card  m-4" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelitem => education.Level)</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelitem => education.EName)</h6>
+                                <p class="card-text">Studied from @Html.DisplayFor(modelitem => education.Join.Year) to @Html.DisplayFor(modelitem => education.Leave.Year)</p>
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Skills
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    @foreach (var skills in Model.Skills)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => skills.SkillName)</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Accomplishment
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    @foreach (var accomplishmet in Model.Accomplishments)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => accomplishmet.CertificateName) (@Html.DisplayFor(modelitem => accomplishmet.GotDate))</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between">
+                Language
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    @foreach (var language in Model.Languages)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => language.LanguageName) </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
 
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+

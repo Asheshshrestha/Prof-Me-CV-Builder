@@ -2,6 +2,7 @@
 using Prof_Me.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Prof_Me.Services
 {
@@ -13,16 +14,16 @@ namespace Prof_Me.Services
             _context = context;
         }
 
-        public void AddAccomplishmentData(Accomplishment entity)
+        public async Task AddAccomplishmentData(Accomplishment entity)
         {
             _context.Accomplishments.Add(entity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public void DeleteAccomplishment(Accomplishment entity)
+        public async Task DeleteAccomplishment(Accomplishment entity)
         {
             _context.Accomplishments.Remove(entity);
-            _context.SaveChanges();
+           await  _context.SaveChangesAsync();
         }
 
         public Accomplishment GetAccomplishment(int id)
@@ -35,11 +36,11 @@ namespace Prof_Me.Services
             return _context.Accomplishments.ToList();
         }
 
-        public void UpdateAccomplishmentData(Accomplishment dbentity, Accomplishment entity)
+        public async Task UpdateAccomplishmentData(Accomplishment dbentity, Accomplishment entity)
         {
             dbentity.CertificateName = entity.CertificateName;
             dbentity.GotDate = entity.GotDate;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
     }

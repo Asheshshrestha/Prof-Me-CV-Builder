@@ -65,6 +65,7 @@ namespace Prof_Me.Controllers
                 var user = _profilecontext.GetUser(current_User.UserName);
                 education.User = user;
                 _context.AddEducationData(education);
+                TempData["smessage"] = "Added New Education Sucessfully";
 
                 return RedirectToAction("MyProfile","UserProfiles",new { @username = current_User.UserName });
             }
@@ -103,6 +104,7 @@ namespace Prof_Me.Controllers
                 {
                     var toupdate = _context.GetEducation(id);
                     _context.UpdateEducationData(toupdate, education);
+                    TempData["smessage"] = "Updated Education Sucessfully";
 
                 }
                 catch (DbUpdateConcurrencyException)
@@ -142,6 +144,7 @@ namespace Prof_Me.Controllers
             var current_User = await _userManager.GetUserAsync(HttpContext.User);
             var education = _context.GetEducation(id);
             _context.DeleteEducation(education);
+            TempData["smessage"] = "Deleted Education Sucessfully";
 
             return RedirectToAction("MyProfile", "UserProfiles", new { @username = current_User.UserName });
         }

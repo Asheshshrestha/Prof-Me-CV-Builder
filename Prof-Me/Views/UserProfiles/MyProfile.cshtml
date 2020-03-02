@@ -4,7 +4,13 @@
     ViewData["Title"] = "MyProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@if (TempData["smessage"] != null)
+{
 
+    <div class="alert alert-success" role="alert">
+        @TempData["smessage"]
+    </div>
+}
 <div class="container">
     <div class="row">
         <img class="cover-img" src="@Url.Content(" /images/userimage/" + @Model.CoverImage)" alt="Responsive image">
@@ -12,11 +18,17 @@
     </div>
     <div class="row usr-dtl">
         <div class="usr-name">
-            @Html.DisplayFor(model => model.FName) @Html.DisplayFor(model => model.LName) (@Html.DisplayFor(model => model.UserName))
+            @if (@Html.DisplayFor(model => model.FName) != null)
+            {
+                @Html.DisplayFor(model => model.FName) }
+            <span>
+    @if (@Html.DisplayFor(model => model.LName) != null)
+            { @Html.DisplayFor(model => model.LName)}
+</span> (@Html.DisplayFor(model => model.UserName))
         </div>
         <div class="usr-ofc">
             <p>
-                ashesh.shrestha@braindigit.com<br /> @Html.DisplayFor(model => model.Post) at <b>@Html.DisplayFor(model => model.Company)</b><br/>
+                @Html.DisplayFor(model => model.Email)<br /> @Html.DisplayFor(model => model.Post) at <b>@Html.DisplayFor(model => model.Company)</b><br />
                 Studied at <b>@Html.DisplayFor(model => model.Universiy)</b><br />
                 @Html.DisplayFor(model => model.Address)<br />
                 Age : @Html.DisplayFor(model => model.Age)
@@ -103,7 +115,7 @@
                         </div>
                     }
                 </div>
-                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -116,9 +128,9 @@
                 <ul class="list-group list-group-flush">
                     @foreach (var skills in Model.Skills)
                     {
-                    <li class="list-group-item">@Html.DisplayFor(modelitem => skills.SkillName) <a class="d-flex justify-content-end"asp-controller="Skills" asp-action="Details" asp-route-id="@skills.Id" class="card-link">Details</a></li>
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => skills.SkillName) <a class="d-flex justify-content-end" asp-controller="Skills" asp-action="Details" asp-route-id="@skills.Id" class="card-link">Details</a></li>
                     }
-                    </ul>
+                </ul>
             </div>
         </div>
     </div>
@@ -129,9 +141,12 @@
                 <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#acc_modal">Add</button>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <ul class="list-group list-group-flush">
+                    @foreach (var accomplishmet in Model.Accomplishments)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => accomplishmet.CertificateName) (@Html.DisplayFor(modelitem => accomplishmet.GotDate)) <a class="d-flex justify-content-end card-link" asp-controller="Accomplishments" asp-action="Details" asp-route-id="@accomplishmet.Id">Details</a></li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
@@ -142,9 +157,12 @@
                 <button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#lng_modal">Add</button>
             </div>
             <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <ul class="list-group list-group-flush">
+                    @foreach (var language in Model.Languages)
+                    {
+                        <li class="list-group-item">@Html.DisplayFor(modelitem => language.LanguageName)  <a class="d-flex justify-content-end card-link" asp-controller="Languages" asp-action="Details" asp-route-id="@language.Id">Details</a></li>
+                    }
+                </ul>
             </div>
         </div>
     </div>
@@ -167,22 +185,22 @@
                 <form asp-controller="Experiences" asp-action="Create">
 
                     <div class="form-group">
-                        <label class="control-label" for="Company">Company</label>
+                        <label class="control-label" for="Company">Company Name</label>
                         <input class="form-control" type="text" id="Company" name="Company" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Company" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="PostType">PostType</label>
+                        <label class="control-label" for="PostType">Post Type</label>
                         <input class="form-control" type="text" id="PostType" name="PostType" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="PostType" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="Join">Join</label>
+                        <label class="control-label" for="Join">Joined Date</label>
                         <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Join field is required." id="Join" name="Join" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Join" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="Leave">Leave</label>
+                        <label class="control-label" for="Leave">Leave Date</label>
                         <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Leave field is required." id="Leave" name="Leave" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Leave" data-valmsg-replace="true"></span>
                     </div>
@@ -224,17 +242,17 @@
                         <span class="text-danger field-validation-valid" data-valmsg-for="Level" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="EName">EName</label>
+                        <label class="control-label" for="EName">Institiue Name</label>
                         <input class="form-control" type="text" id="EName" name="EName" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="EName" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="Join">Join</label>
+                        <label class="control-label" for="Join">Joined Date</label>
                         <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Join field is required." id="Join" name="Join" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Join" data-valmsg-replace="true"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="Leave">Leave</label>
+                        <label class="control-label" for="Leave">Leave Date</label>
                         <input class="form-control" type="datetime-local" data-val="true" data-val-required="The Leave field is required." id="Leave" name="Leave" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="Leave" data-valmsg-replace="true"></span>
                     </div>
@@ -261,7 +279,7 @@
                 <form asp-controller="Skills" asp-action="Create">
 
                     <div class="form-group">
-                        <label class="control-label" for="SkillName">SkillName</label>
+                        <label class="control-label" for="SkillName">Skill Name</label>
                         <input class="form-control" type="text" id="SkillName" name="SkillName" value="" />
                         <span class="text-danger field-validation-valid" data-valmsg-for="SkillName" data-valmsg-replace="true"></span>
                     </div>
@@ -272,7 +290,7 @@
                 </form>
 
             </div>
-           
+
         </div>
     </div>
 </div>
@@ -287,12 +305,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <form asp-controller="Accomplishments" asp-action="Create">
+
+                    <div class="form-group">
+                        <label class="control-label" for="CertificateName">Certificate Name</label>
+                        <input class="form-control" type="text" id="CertificateName" name="CertificateName" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="CertificateName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="GotDate">Got Date</label>
+                        <input class="form-control" type="datetime-local" data-val="true" data-val-required="The GotDate field is required." id="GotDate" name="GotDate" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="GotDate" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
-            </div>
+
         </div>
     </div>
 </div>
@@ -307,12 +338,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <form asp-controller="Languages" asp-action="Create">
+
+                    <div class="form-group">
+                        <label class="control-label" for="LanguageName">Language Name</label>
+                        <input class="form-control" type="text" id="LanguageName" name="LanguageName" value="" />
+                        <span class="text-danger field-validation-valid" data-valmsg-for="LanguageName" data-valmsg-replace="true"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Add</button>
-            </div>
+
         </div>
     </div>
 </div>

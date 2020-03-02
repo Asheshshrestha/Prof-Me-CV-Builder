@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Prof_Me.Data
 {
@@ -6,8 +7,8 @@ namespace Prof_Me.Data
     {
         UserEntity GetAccomplishment(int id);
         IEnumerable<UserEntity> GetAllAccomplishment();
-        void AddAccomplishmentData(UserEntity entity);
-        void UpdateAccomplishmentData(UserEntity dbentity, UserEntity entity);
-        void DeleteAccomplishment(UserEntity entity);
+        Task AddAccomplishmentData(UserEntity entity);
+        Task UpdateAccomplishmentData(UserEntity dbentity, UserEntity entity);
+        Task DeleteAccomplishment(UserEntity entity);
     }
 }

@@ -68,6 +68,7 @@ namespace Prof_Me.Controllers
                 var user = _profilecontext.GetUser(current_User.UserName);
                 experience.User = user;
                 await _context.AddExperienceData(experience);
+                TempData["smessage"] = "Added New Experience Sucessfully";
 
                 return RedirectToAction("MyProfile","UserProfiles",new { @username = current_User.UserName });
             }
@@ -106,6 +107,7 @@ namespace Prof_Me.Controllers
                     
                     var toupdate = _context.GetExperience(id);
                     await _context.UpdateExperienceData(toupdate, experience);
+                    TempData["smessage"] = "Updated Experience Sucessfully";
 
                 }
                 catch (DbUpdateConcurrencyException)
@@ -145,6 +147,7 @@ namespace Prof_Me.Controllers
             var current_User = await _userManager.GetUserAsync(HttpContext.User);
             var todelete = _context.GetExperience(id);
             await _context.DeleteExperience(todelete);
+            TempData["smessage"] = "Deleted Experience Sucessfully";
             return RedirectToAction("MyProfile", "UserProfiles", new { @username = current_User.UserName });
         }
 
