@@ -14,7 +14,7 @@ namespace Prof_Me.Services
         {
             _context = context;
         }
-
+       
         public void AddProfileData(UserProfile entity)
         {
             _context.UserProfiles.Add(entity);

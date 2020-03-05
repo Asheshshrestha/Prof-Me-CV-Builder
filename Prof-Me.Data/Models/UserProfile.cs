@@ -5,7 +5,13 @@ namespace Prof_Me.Data.Models
 {
     public class UserProfile
     {
+        /// <summary>
+        /// User ID
+        /// </summary>
         public int Id { get; set; }
+        /// <summary>
+        /// User Name
+        /// </summary>
         [Display(Name = "User Name")]
         public string UserName { get; set; }
         [Display(Name = "First Name")]
