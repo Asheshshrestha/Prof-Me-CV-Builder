@@ -225,8 +225,6 @@ E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Vie
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Experiences\Details.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Experiences\Edit.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Experiences\Index.cshtml.g.cs
-E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Prof-Me.MvcApplicationPartsAssemblyInfo.cs
-E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Prof-Me.MvcApplicationPartsAssemblyInfo.cache
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\UserProfiles\MyProfile.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Educations\Create.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Educations\Delete.cshtml.g.cs
@@ -248,3 +246,6 @@ E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Vie
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Details.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Edit.cshtml.g.cs
 E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Index.cshtml.g.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Prof-Me.MvcApplicationPartsAssemblyInfo.cs
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\obj\Debug\netcoreapp3.1\Prof-Me.MvcApplicationPartsAssemblyInfo.cache
+E:\Ashesh\DotNetCore Learining\Prof-Me\Prof-Me\bin\Debug\netcoreapp3.1\docfx.json

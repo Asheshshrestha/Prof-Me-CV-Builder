@@ -75,11 +75,7 @@ namespace Prof_Me.Controllers
         // GET: Languages/Edit/5
         public IActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
+            
             var language = _context.GetLanguage(id);
             if (language == null)
             {

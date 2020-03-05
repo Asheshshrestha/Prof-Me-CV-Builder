@@ -8,12 +8,14 @@
     ".NETCoreApp,Version=v3.1": {
       "Prof-Me.Services/1.0.0": {
         "dependencies": {
-          "Prof-Me.Data": "1.0.0"
+          "Prof-Me.Data": "1.0.0",
+          "docfx.console": "2.50.0"
         },
         "runtime": {
           "Prof-Me.Services.dll": {}
         }
       },
+      "docfx.console/2.50.0": {},
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Core": "2.2.0",
@@ -1185,6 +1187,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "docfx.console/2.50.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RDabSrWMtr279NmEdLMJk0dXIpTyLUe3k8qPL27NTBdPyVXBI9STJTbm6ONlkuIrIkss4OPVjVMCyCdaX+SS7w==",
+      "path": "docfx.console/2.50.0",
+      "hashPath": "docfx.console.2.50.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",

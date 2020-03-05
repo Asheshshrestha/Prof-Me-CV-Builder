@@ -33,6 +33,7 @@
           "Prof-Me.Data": "1.0.0",
           "Prof-Me.Services": "1.0.0",
           "bootstrap": "4.4.1",
+          "docfx.console": "2.50.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "3.1.0.0",
@@ -312,6 +313,7 @@
           "popper.js": "1.16.0"
         }
       },
+      "docfx.console/2.50.0": {},
       "jQuery/3.0.0": {},
       "Microsoft.AspNetCore.Authentication/2.2.0": {
         "dependencies": {
@@ -4178,6 +4180,13 @@
       "sha512": "sha512-/QO9//Z8IYv8VmxTS3VzLaQC3wYnJDNbACnZHgLEeMABYjNuVPToLa6VDP2S4KwU3gUFiXglhQYZ00cddSK0IQ==",
       "path": "bootstrap/4.4.1",
       "hashPath": "bootstrap.4.4.1.nupkg.sha512"
+    },
+    "docfx.console/2.50.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RDabSrWMtr279NmEdLMJk0dXIpTyLUe3k8qPL27NTBdPyVXBI9STJTbm6ONlkuIrIkss4OPVjVMCyCdaX+SS7w==",
+      "path": "docfx.console/2.50.0",
+      "hashPath": "docfx.console.2.50.0.nupkg.sha512"
     },
     "jQuery/3.0.0": {
       "type": "package",
